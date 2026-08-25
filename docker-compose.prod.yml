@@ -43,7 +43,7 @@ services:
       JWT_REFRESH_EXPIRES_IN: 7d
       THROTTLE_TTL: 60000
       THROTTLE_LIMIT: 100
-      CORS_ORIGINS: ${CORS_ORIGINS:-https://yourdomain.com}
+      CORS_ORIGINS: ${CORS_ORIGINS:-https://inv-pos.mfaisalkahfi.my.id}
       MIDTRANS_SERVER_KEY: ${MIDTRANS_SERVER_KEY:-}
       MIDTRANS_CLIENT_KEY: ${MIDTRANS_CLIENT_KEY:-}
       MIDTRANS_IS_PRODUCTION: ${MIDTRANS_IS_PRODUCTION:-false}
@@ -55,13 +55,13 @@ services:
       context: ./fe
       dockerfile: Dockerfile
       args:
-        - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-https://yourdomain.com/api/v1}
+        - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-https://inv-pos.mfaisalkahfi.my.id/api/v1}
     container_name: invpos_fe
     restart: always
     depends_on:
       - backend
     environment:
-      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-https://yourdomain.com/api/v1}
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-https://inv-pos.mfaisalkahfi.my.id/api/v1}
     networks:
       - app-network
 
