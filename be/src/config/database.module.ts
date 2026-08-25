@@ -15,12 +15,9 @@ import { ConfigService } from '@nestjs/config';
         database: configService.get<string>('DB_NAME', 'inventory_pos'),
         entities: [__dirname + '/../**/*.entity{.ts,.js}'],
         migrations: [__dirname + '/../database/migrations/*{.ts,.js}'],
-        synchronize: false,
+        synchronize: true, // Set to false after first deployment and use migrations
         logging: configService.get<string>('NODE_ENV') === 'development',
-        ssl:
-          configService.get<string>('NODE_ENV') === 'production'
-            ? { rejectUnauthorized: false }
-            : false,
+        ssl: false,
       }),
     }),
   ],
